@@ -40,13 +40,15 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.очиститьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.очиститьПутьФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +62,10 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.очиститьФайлToolStripMenuItem,
+            this.справкаToolStripMenuItem,
+            this.очиститьПутьФайлаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(434, 24);
@@ -103,7 +108,6 @@
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.progressBar1);
             this.panel1.Controls.Add(this.button3);
@@ -155,26 +159,15 @@
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
             this.label1.Location = new System.Drawing.Point(90, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 13);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = ":";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(183, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(102, 23);
-            this.button5.TabIndex = 6;
-            this.button5.Text = "Очистить файл";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(183, 70);
+            this.button4.Location = new System.Drawing.Point(174, 41);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 23);
+            this.button4.Size = new System.Drawing.Size(120, 23);
             this.button4.TabIndex = 5;
             this.button4.Text = "Выбрать файл";
             this.button4.UseVisualStyleBackColor = true;
@@ -199,11 +192,11 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(93, 70);
+            this.button2.Location = new System.Drawing.Point(174, 70);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Очистить";
+            this.button2.Text = "Очистить поле";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -223,6 +216,27 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(409, 20);
             this.textBox1.TabIndex = 0;
+            // 
+            // очиститьФайлToolStripMenuItem
+            // 
+            this.очиститьФайлToolStripMenuItem.Name = "очиститьФайлToolStripMenuItem";
+            this.очиститьФайлToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.очиститьФайлToolStripMenuItem.Text = "Очистить файл";
+            this.очиститьФайлToolStripMenuItem.Click += new System.EventHandler(this.ОчиститьФайлToolStripMenuItem_Click);
+            // 
+            // справкаToolStripMenuItem
+            // 
+            this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.справкаToolStripMenuItem.Text = "Справка";
+            this.справкаToolStripMenuItem.Click += new System.EventHandler(this.СправкаToolStripMenuItem_Click);
+            // 
+            // очиститьПутьФайлаToolStripMenuItem
+            // 
+            this.очиститьПутьФайлаToolStripMenuItem.Name = "очиститьПутьФайлаToolStripMenuItem";
+            this.очиститьПутьФайлаToolStripMenuItem.Size = new System.Drawing.Size(136, 20);
+            this.очиститьПутьФайлаToolStripMenuItem.Text = "Очистить путь файла";
+            this.очиститьПутьФайлаToolStripMenuItem.Click += new System.EventHandler(this.ОчиститьПутьФайлаToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -265,9 +279,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ToolStripMenuItem очиститьФайлToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem очиститьПутьФайлаToolStripMenuItem;
     }
 }
 

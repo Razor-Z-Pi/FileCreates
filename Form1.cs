@@ -16,6 +16,7 @@ namespace Утилита_создания_файлов
         OpenFileDialog open = new OpenFileDialog();
         Random rand = new Random();
         public string messege;
+        public string patch = @"README.txt"; //Путь до файла
 
         public Form1()
         {
@@ -47,7 +48,16 @@ namespace Утилита_создания_файлов
 
         private void Button2_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
+            int number = 100;
             textBox1.Text = "";
+            if (textBox1.Text == "" || textBox1.Text == " ")
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    progressBar1.Value++;
+                }
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -73,26 +83,6 @@ namespace Утилита_создания_файлов
             label1.Text = open.FileName;
         }
 
-        private void Button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string S_T = label1.Text;
-                System.IO.File.Create(messege).Close();
-                MessageBox.Show($"Файл {S_T} полностью очищен!!!",
-                                "Внимание",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Exclamation);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Файл не выбран, пожалуйста выберите его",
-                "Внимание",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Hand);
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             MaximizeBox = false;
@@ -101,6 +91,16 @@ namespace Утилита_создания_файлов
         private void Push()
         {
             int number = 100;
+            progressBar1.Value = 0;
+
+            if (label1.Text == "")
+            {
+                MessageBox.Show("Файл не выбран",
+                                "Внимание",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
             if (messege != "")
             {
@@ -131,12 +131,47 @@ namespace Утилита_создания_файлов
             }
         }
 
+        // Для Enter, чтобы при нажатие клавиши выполнялась запись
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 Push();
             }
+        }
+
+        private void ОчиститьФайлToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string S_T = label1.Text;
+                System.IO.File.Create(messege).Close();
+                MessageBox.Show($"Файл {S_T} полностью очищен!!!",
+                                "Внимание",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Файл не выбран, пожалуйста выберите его",
+                "Внимание",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Hand);
+            }
+        }
+
+        private void ОчиститьПутьФайлаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            messege = "";
+            label1.Text = "";
+        }
+
+        private void СправкаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Открыть программой по умолчанию:
+            System.Diagnostics.Process.Start(patch);
+            //Открыть через блокнот:
+            System.Diagnostics.Process.Start("notepad.exe", patch);
         }
     }
 }
