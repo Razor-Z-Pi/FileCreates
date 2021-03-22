@@ -168,8 +168,6 @@ namespace Утилита_создания_файлов
 
         private void СправкаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Открыть программой по умолчанию:
-            System.Diagnostics.Process.Start(patch);
             //Открыть через блокнот:
             System.Diagnostics.Process.Start("notepad.exe", patch);
         }
